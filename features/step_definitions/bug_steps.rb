@@ -58,10 +58,17 @@ end
 
 When("I should see list in created") do
   sleep 3
-  @browser.find_element(xpath: "//div[3]/div[2]/div[1]/div[1]/div").displayed?
+  string = @browser.find_element(xpath: "//div[1]/div[1]/div/div/a/div[1]").text  
+  puts "#{string}"
+    if string.include? "Dfd222"
+    puts "#{string}"
+else
+# raise.Exception.new "#{string1} Not found"
+   end
 end
 
 Then("see in the list") do
   sleep 3
   @browser.find_element(id: "panel_show").displayed?
 end
+
