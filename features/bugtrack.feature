@@ -1,27 +1,19 @@
 @BugTracker_page
-Feature: User has to be login
-I should open the bugtracker user dashboard
+Feature: User login
+I should be able to login BugTracker application
+and create a bug with all input successfully
 
-@Login_click
-Scenario: 
-Given I am on Bugtracker page
-When I click on login button 
-Then I should see the login pop-up menu
+@Smoke
+Scenario: Login 
+Given I am on BugTracker page
+When I entered username and password 
+And I click on Submit button
+Then I should see "Signed in Successfully"
 
-@Login_user
-Scenario: 
-Given I entered username and password 
-When I click on submit button
-Then I see the signed in successfully message 
+@Create_bug_and_verify_buglist
+Scenario: Creating a bug and Verifying the bug 
+Given I am on BugTracker Dashboard page
+When I entered valid inputs for all the fields 
+And I click on Ok button
+Then I should see bug which was created in the list
 
-@create
-Scenario: 
-Given I click on create button 
-When I should see the create pop-up menu
-Then I entered valid input's for all the fields 
-
-@Bug_list
-Scenario: 
-Given I need to check bug is created or not
-When I should see list in created
-Then see in the list
